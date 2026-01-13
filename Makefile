@@ -5,28 +5,19 @@ SRC = get_next_line.c \
 
 OBJ = $(SRC:.c=.o)
 
-LIBFT_DIR = libft
-LIBFT = $(LIBFT_DIR)/libft.a
 
 CC = cc
-BUFFER = -D BUFFER_SIZE=42
-CFLAGS = -Wall -Werror -Wextra -Ilibft $(BUFFER)
+CFLAGS = -Wall -Werror -Wextra
 
-all: $(NAME) $(LIBFT)
+all: $(NAME) 
 
-$(LIBFT): 
-	$(MAKE) -C $(LIBFT_DIR)
-
-$(NAME): $(OBJ) $(LIBFT)
-	cp $(LIBFT) $(NAME)
+$(NAME): $(OBJ) 
 	ar -rsc $(NAME) $(OBJ)
 
 clean:
-	$(MAKE) -C $(LIBFT_DIR) clean
-	rm -f $(OBJ) $(OBJ_LIBFT)
+	rm -f $(OBJ)
 
 fclean: clean
-	$(MAKE) -C $(LIBFT_DIR) fclean
 	rm -f $(NAME)
 
 re: fclean all
