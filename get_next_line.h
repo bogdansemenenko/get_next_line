@@ -10,9 +10,12 @@
 #include  <stdlib.h>
 
 
-int ft_strlen(char *str);
+size_t ft_strlen(char *str);
 char *ft_strchr(const char *str, int c);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-
+char	*ft_strjoin(char *s1, char *s2);
+char	*read_stash(int fd, char *stash);
+char    *get_new_line(char *stash);
+char	*get_next_line(int fd);
+char *get_line(char *stash);
 
 #endif
